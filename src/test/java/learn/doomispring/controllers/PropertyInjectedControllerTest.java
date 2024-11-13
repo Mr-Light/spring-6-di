@@ -3,10 +3,18 @@ package learn.doomispring.controllers;
 import learn.doomispring.services.GreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
 class PropertyInjectedControllerTest {
+
+    /* with spring mark the test as a spring component with annotation
+    put the autowired annotation for spring to know what to inject
+    and now no need for the manual injection in the setUp() method
+     */
+    @Autowired
     PropertyInjectedController propertyInjectedController;
 
     /* this is an example of where the greetingService is injected using
@@ -15,12 +23,12 @@ class PropertyInjectedControllerTest {
 
      Why this is the worst type of injection is if you forget the property, try commenting
      out the greetingService line */
-    @BeforeEach
-    void setUp() {
-        propertyInjectedController = new PropertyInjectedController();
-        propertyInjectedController.greetingService = new GreetingServiceImpl();
-
-    }
+//    @BeforeEach
+//    void setUp() {
+//        propertyInjectedController = new PropertyInjectedController();
+//        propertyInjectedController.greetingService = new GreetingServiceImpl();
+//
+//    }
 
     @Test
     void sayHello() {
