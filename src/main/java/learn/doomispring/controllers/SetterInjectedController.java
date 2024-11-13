@@ -13,7 +13,6 @@ public class SetterInjectedController {
     // qualifier will not work if the primary annotation does not exist on the primary service
     @Autowired
     public void setGreetingService(@Qualifier("setterGreeting") GreetingService greetingService) {
-        System.out.println("from setter!");
         this.greetingService = greetingService;
     }
 

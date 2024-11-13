@@ -3,13 +3,16 @@ package learn.doomispring.controllers;
 import learn.doomispring.services.GreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class ConstructorInjectedContTest {
 
-    ConstructorInjectedCont controller =
-            new ConstructorInjectedCont(new GreetingServiceImpl());
+    @Autowired
+    ConstructorInjectedCont controller;
 
     @Test
     void sayHello() {

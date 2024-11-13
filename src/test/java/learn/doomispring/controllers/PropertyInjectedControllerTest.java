@@ -1,12 +1,9 @@
 package learn.doomispring.controllers;
 
-import learn.doomispring.services.GreetingServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class PropertyInjectedControllerTest {
 
@@ -15,7 +12,7 @@ class PropertyInjectedControllerTest {
     and now no need for the manual injection in the setUp() method
      */
     @Autowired
-    PropertyInjectedController propertyInjectedController;
+    PropertyInjectedController controller;
 
     /* this is an example of where the greetingService is injected using
      property, where the dependency needed to be injected
@@ -32,6 +29,6 @@ class PropertyInjectedControllerTest {
 
     @Test
     void sayHello() {
-        System.out.println(propertyInjectedController.sayHello());
+        System.out.println(controller.sayHello());
     }
 }
